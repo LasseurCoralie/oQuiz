@@ -12,25 +12,18 @@
         <!-- Really beautiful CSS -->
         <link href="../resources/views/css/style.css"  rel="stylesheet">
 
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
         <title>O'Quiz</title>
     </head>
     <body>
         <main class="container">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#">
-                        <h1>O'Quiz</h1>
-                        </a>
-                    </li>
+            <nav >
+                <ul class="title">
+                <a href="{{route('home')}}">oQuiz</a>
                 </ul>
-
-                <ul>
+                <ul class="menu-nav">
                     <li>
-                        <a href="{{route('home')}}">
-                            <i></i>
-                            Accueil
-                        </a>
+                        <a href="{{route('home')}}">Accueil</a>
                     </li>
 
                     <li>
@@ -63,3 +56,9 @@
 
                 </ul>
             </nav>
+            <div id="main-title" class="canvas-basic">
+                    <a href="{{route('home')}}">
+                        <h1 class="shadow-Line">Ready ?</h1>
+                    </a>
+                </div>
+            
