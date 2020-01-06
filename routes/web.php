@@ -11,6 +11,17 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/', [
+    'as' => 'home',
+    'uses' => 'MainController@homePage'
+]);
+
+$router->get('/signup', [
+    'as' => 'inscription',
+    'uses' => 'AdminController@signUp'
+]);
+
+$router->get('/signin', [
+    'as' => 'connexion',
+    'uses' => 'AdminController@signIn'
+]);
