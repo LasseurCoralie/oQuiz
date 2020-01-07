@@ -6,7 +6,7 @@ let app = {
     $(window).scroll(function() {
     var scroll = $(window).scrollTop();
 
-    if (scroll >= 10) {
+    if (scroll >= 25) {
         h1Title.removeClass('shadow-Line').addClass("shadow-Line1");
     } else {
         h1Title.removeClass("shadow-Line1").addClass('shadow-Line');

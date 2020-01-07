@@ -21,7 +21,46 @@ $router->get('/signup', [
     'uses' => 'AdminController@signUp'
 ]);
 
+$router->post('/signup', [
+    'as' => 'inscription',
+    'uses' => 'AdminController@signupPost'
+]);
+
 $router->get('/signin', [
     'as' => 'connexion',
     'uses' => 'AdminController@signIn'
+]);
+
+$router->post('/signin', [
+    'as' => 'connexion',
+    'uses' => 'AdminController@signinPost'
+]);
+
+$router->get('/quiz/{id}', [
+    'as' => 'quiz',
+    'uses' => 'QuizController@quiz'
+]);
+
+$router->post('/quiz/{id}', [
+    'as' => 'quiz',
+    'uses' => 'QuizController@quizPost'
+]);
+
+$router->get('/logout', [
+    'as' => 'logout',
+    'uses' => 'UserController@logout'
+]);
+
+$router->get('/account', [
+    'as' => 'logout',
+    'uses' => 'UserController@profile'
+]);
+
+$router->get('/tags', [
+    'as' => 'tag',
+    'uses' => 'TagController@tags'
+]);
+$router->get('/tags/{id}/quiz', [
+    'as' => 'tagQuiz',
+    'uses' => 'TagController@quiz'
 ]);

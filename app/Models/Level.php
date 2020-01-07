@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class Quizzes extends Model{
+class Level extends Model{
 
-    protected $table = 'quizzes';
+    protected $table = 'levels';
 
 }
