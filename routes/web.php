@@ -22,7 +22,7 @@ $router->get('/signup', [
 ]);
 
 $router->post('/signup', [
-    'as' => 'inscription',
+    'as' => 'inscriptionPost',
     'uses' => 'AdminController@signupPost'
 ]);
 
@@ -32,7 +32,7 @@ $router->get('/signin', [
 ]);
 
 $router->post('/signin', [
-    'as' => 'connexion',
+    'as' => 'connexionPost',
     'uses' => 'AdminController@signinPost'
 ]);
 

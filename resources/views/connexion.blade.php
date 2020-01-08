@@ -11,10 +11,7 @@
     <label for="exampleInputPassword1">Mot de passe</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Confirmer votre mot de passe</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
+
 
   <button type="submit" class="btn btn-primary">Se connecter</button>
 </form>

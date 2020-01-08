@@ -4,8 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model{
+class Question extends Model
+{
+    /**
+     * Create relationship between Question and Level
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function level()
+    {
+        return $this->belongsTo(
+            'App\Models\Level',
+            'levels_id'
+        );
+    }
 
-    protected $table = 'questions';
-
+    public function answer()
+    {
+        return $this->hasMany(
+            'App\Models\Answer',
+            'questions_id'
+        );
+    }
 }

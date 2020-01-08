@@ -3,33 +3,70 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quizzes;
-use App\Models\Question;
-use App\Models\Level;
-use App\Models\AppUser;
-use Illuminate\Http\Request;
-use Laravel\Lumen\Routing\Controller as BaseController;
+use App\Models\Tag;
+use Illuminate\Http\Response;
 
 class QuizController extends Controller
 {
-    public function quiz(Request $request, $id)
+    /**
+     * Quiz page
+     *
+     * @param int|string $id Quiz id
+     */
+    public function quiz($id)
     {
-        $users = AppUser::all();
+        // Je récupère les informations du quiz en fonction de l'id reçu en paramètre d'URL
+        $quiz = Quizzes::find($id);
 
-        $quiz = Quizzes::all()->where('id', $id);
+        // Si l'id ne correspond à aucun, je déclenche une erreur 404 (pas non trouvée)
+        if (! isset($quiz)) {
+            // abort(404);
+            abort(Response::HTTP_NOT_FOUND);
+        }
 
-        $levels = Level::all();
+        $tagsName = Tag::all();
 
-        $questions = Question::all()->where('quizzes_id', $id);
+        /*
+        // On aurait pu faire :
+        $quiz = Quiz::findOrFail($id);
+        */
 
-        dump($questions);
+        /*
+        Plus besoin de ce code car j'utilise la relationship entre Quiz et AppUser
+        // Je récupère les informations de l'auteur à partir de l'id de app_user stocké dans ma table quizzes
+        $author = AppUser::find($quiz->app_users_id);
+        */
 
-        return view('quiz', [
-            'questions' => $questions,
-            'levels' => $levels,
-            'quiz' => $quiz,
-            'users' => $users
+        /*
+        Plus besoin de récupérer manuellement les questions associées à mon quiz, elles sont associées directement à mon quiz grâce à la relation décrite dans le Model Quiz
+        // Je récupère la liste des questions associées à mon quiz
+        $questionList = Question
+            ::where('quizzes_id', $id)
+            ->get()
+        ;
+        // $questionList = Question::where('quizzes_id', $quiz->id);
+        */
 
-        ]);
+
+        // J'appelle la view quiz/quiz.php
+        return view(
+            'quiz',
+            [
+                'tagsName' => $tagsName,
+
+                // J'envoie le quiz à la view
+                'quiz'   => $quiz,
+                /*
+                Plus besoin de ce code car relationship entre Quiz et AppUser
+                // J'envoie l'auteur à la view
+                'author' => $author,
+                */
+                /*
+                Plus besoin d'envoyer la liste des questions à la vue, elles sont disponibles directement dans $quiz
+                // J'envoie la liste des questions à la view
+                'questionList' => $questionList
+                */
+            ]
+        );
     }
-    
 }

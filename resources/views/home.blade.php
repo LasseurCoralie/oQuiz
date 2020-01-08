@@ -1,4 +1,6 @@
 @include('layouts.header')
+@include('partials.tags')
+            
             <div class="presentation">
                 <h2> Bienvenue sur O'Quiz </h2>
                 <p>
@@ -11,7 +13,7 @@
                     <a href="{{route('home')}}">
                         <h1 class="shadow-Line">Time to learn kids!</h1>
                     </a>
-                </div>
+            </div>
 
             <div class="row col-quiz">
                 
