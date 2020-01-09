@@ -18,7 +18,7 @@
             <div class="row col-quiz">
                 
                 @foreach($quizzes as $quiz)
-                <div class="col-4">
+                <div class="col-5">
                     <a href="{{ route('quiz', ['id' => $quiz->id]) }}"><h3>{{ $quiz->title }}</h3></a>
                     <h5>{{ $quiz->description }}</h5>
                     <p>by {{ $users->firstWhere('id', $quiz->app_users_id)->getFullName() }}</p>

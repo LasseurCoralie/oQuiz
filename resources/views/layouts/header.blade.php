@@ -26,13 +26,7 @@
                         <a href="{{route('home')}}">Accueil</a>
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <i></i>
-                            Mon compte
-                        </a>
-                    </li>
-
+                    @if (!isset($_SESSION['connectedUser']))
                     <li>
                         <a href="{{route('inscription')}}">
                             <i></i>
@@ -46,13 +40,23 @@
                             Se connecter
                         </a>
                     </li>
+                    @endif
+
+                    @if (isset($_SESSION['connectedUser']))
+                    <li>
+                        <a href="{{ route('account') }}">
+                            <i></i>
+                            Mon compte
+                        </a>
+                    </li>
 
                     <li>
-                        <a href="#">
+                        <a href="{{ route('logout') }}">
                             <i></i>
                             Déconnexion
                         </a>
                     </li>
+                    @endif
 
                 </ul>
             </nav>

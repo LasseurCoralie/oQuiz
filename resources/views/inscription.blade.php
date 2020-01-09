@@ -3,19 +3,23 @@
 <h2 class="col-10 mx-auto">Formulaire de connexion</h2>
 <form class="col-10 mx-auto" method="post">
   <div class="form-group">
-    <label for="exampleInputEmail1">Nom</label>
-    <input name="firstname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="firstname">Nom</label>
+    <input name="firstname" type="text" class="form-control" id="firstname" aria-describedby="emailHelp">
   <div class="form-group">
-    <label for="exampleInputEmail1">Prénom</label>
-    <input name="lastname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="lastname">Prénom</label>
+    <input name="lastname" type="text" class="form-control" id="lastname" aria-describedby="emailHelp">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">E-mail</label>
-    <input name="email" type="email" class="form-control" id="exampleInputPassword1">
+    <label for="email">E-mail</label>
+    <input name="email" type="email" class="form-control" id="email">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Mot de passe</label>
-    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+    <label for="password">Mot de passe</label>
+    <input name="password" type="password" class="form-control" id="password">
+  </div>
+  <div class="form-group">
+    <label for="password_confirmation">Confirmation mot de passe</label>
+    <input name="password_confirmation" type="password" class="form-control" id="password_confirmation">
   </div>
 
   

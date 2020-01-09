@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Quizzes;
 use App\Models\AppUser;
 use App\Models\Tag;
@@ -10,7 +9,7 @@ use App\Models\Tag;
 
 class MainController extends Controller {
 
-    public function homePage(Request $request)
+    public function homePage()
     {
         $quizzes = Quizzes::all();
 
@@ -18,7 +17,7 @@ class MainController extends Controller {
         $users = AppUser::all();
         //dump($users);
 
-        $tagsName = Tag::all();
+        $tagsName = $this->tag();
 
         return view('home', [
           'quizzes' => $quizzes,

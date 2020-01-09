@@ -11,8 +11,7 @@ class TagController extends Controller
 {
     public function quiz($id)
     {
-
-        $tagsName = Tag::all();
+        $tagsName = $this->tag();
 
         $tags = Tag::find($id);
 

@@ -73,6 +73,10 @@ li{
 
 }
 
+ol{
+    list-style: decimal !important;
+}
+
 nav{
     display: flex;
     flex-wrap: wrap;

@@ -48,12 +48,12 @@ $router->post('/quiz/{id}', [
 
 $router->get('/logout', [
     'as' => 'logout',
-    'uses' => 'UserController@logout'
+    'uses' => 'AdminController@logout'
 ]);
 
 $router->get('/account', [
-    'as' => 'logout',
-    'uses' => 'UserController@profile'
+    'as' => 'account',
+    'uses' => 'AdminController@profile'
 ]);
 
 $router->get('/tags', [

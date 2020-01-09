@@ -24,7 +24,7 @@ class QuizController extends Controller
             abort(Response::HTTP_NOT_FOUND);
         }
 
-        $tagsName = Tag::all();
+        $tagsName = $this->tag();
 
         /*
         // On aurait pu faire :
@@ -49,24 +49,36 @@ class QuizController extends Controller
 
 
         // J'appelle la view quiz/quiz.php
-        return view(
-            'quiz',
-            [
-                'tagsName' => $tagsName,
+        if (!isset($_SESSION['connectedUser'])){
+            return view(
+                'quiz',
+                [
+                    'tagsName' => $tagsName,
+    
+                    // J'envoie le quiz à la view
+                    'quiz'   => $quiz,
+                    /*
+                    Plus besoin de ce code car relationship entre Quiz et AppUser
+                    // J'envoie l'auteur à la view
+                    'author' => $author,
+                    */
+                    /*
+                    Plus besoin d'envoyer la liste des questions à la vue, elles sont disponibles directement dans $quiz
+                    // J'envoie la liste des questions à la view
+                    'questionList' => $questionList
+                    */
+                ]
+            );
+        } else {
+            return view ('quizConnected',
+                [
+                    // J'envoie le quiz à la view
+                    'quiz'   => $quiz,
+                    'tagsName' => $tagsName,
 
-                // J'envoie le quiz à la view
-                'quiz'   => $quiz,
-                /*
-                Plus besoin de ce code car relationship entre Quiz et AppUser
-                // J'envoie l'auteur à la view
-                'author' => $author,
-                */
-                /*
-                Plus besoin d'envoyer la liste des questions à la vue, elles sont disponibles directement dans $quiz
-                // J'envoie la liste des questions à la view
-                'questionList' => $questionList
-                */
-            ]
-        );
+                ]
+            );
+        }
+        
     }
 }

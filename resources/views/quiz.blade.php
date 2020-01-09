@@ -5,7 +5,6 @@
 
 <div class="container-quiz">
 <div>
-    
     <h2>{{ $quiz->title }} - <span>{{$quiz->questions->count()}} questions</span></h2>
 </div>
 
@@ -20,7 +19,7 @@
 @if(!empty($quiz->tags))
     <ul>
         @foreach($quiz->tags as $tags)
-        <li>{{$tags->name}}</li>
+        <li class="list-reponses">{{$tags->name}}</li>
         @endforeach
     </ul>
 @endif
@@ -34,11 +33,11 @@
         <div class="question__question">{{ $question->question }}</div>
     
         <div>
-            <ul>
-                @foreach($question->answer as $answer)
-                <li>{{$answer->description }}</li>
+            <ol>
+                @foreach($question->answer->shuffle() as $answer)
+                <li class="ol-list">{{$answer->description }}</li>
                 @endforeach
-            </ul> 
+            </ol> 
         </div>
     </div>
     @endforeach
